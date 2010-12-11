@@ -1,0 +1,17 @@
+simple games is a suite of text-based terminal games for any *NIX-type environment.
+    Copyright (C) 2010  David Hagerty
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+If you wish to contact me, my email is hagerty9009@gmail.com
+
+I'm using this both as a primer to github and to learn about open-source development.
+I'm still new to programming, and I want to start programming games, so I figured I'd start with some simple tic-tac-toe, checkers, chess, reversi, and maybe an adventure game.
