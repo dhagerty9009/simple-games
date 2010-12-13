@@ -1,0 +1,11 @@
+todo:
+
+create a chess game
+	-AI will be difficult
+create a checkers game
+	-how to label the pieces?
+	-how to track moves?
+create a text-based adventure (a la Zork!)
+
+create a way for these to be executed from the command line
+	-user can choose which game to run from this
