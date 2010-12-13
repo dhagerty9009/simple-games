@@ -68,10 +68,10 @@ def chooseRandomMoveFromList(board,movesList):
 	for i in movesList:
 		if isSpaceFree(board,i):
 			possibleMoves.append(i)
-		if len(possibleMoves) != 0:
-			return random.choice(possibleMoves)
-		else:
-			return None
+	if len(possibleMoves) != 0:
+		return random.choice(possibleMoves)
+	else:
+		return None
 def getComputerMove(board,computerLetter):
 	#given a board and the computer's letter, find the optimal move
 	if computerLetter=="X":
