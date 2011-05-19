@@ -23,6 +23,7 @@ def getPlayerColor()
   return player_choice, computer_choice
 end
 
+# Here is the main game logic
 puts "Welcome to the game of checkers!"
 puts "Please choose your color."
 player_color, computer_color = getPlayerColor()
