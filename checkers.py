@@ -7,6 +7,7 @@
 
 # This is what the initial board will look like
 #
+#     A   B   C   D   E   F   G   H
 #   +---+---+---+---+---+---+---+---+
 #   | B |   | B |   | B |   | B |   |
 #   +---+---+---+---+---+---+---+---+
@@ -46,9 +47,26 @@ def getPlayerColor():
             print("Invalid option, try again.")
     return choice, unchosen
 
+# The game board
+def drawBoard():
+    line = " +---+---+---+---+---+---+---+---+"
+    collumns = "   A   B   C   D   E   F   G   H"
+    print(collumns)
+    print(line)
+#
+# Movement of the pieces: The pieces are moved by typing in a collumn letter
+# and a row number for the piece you want to move, and then a collunm letter
+# and a row number for the spot you want to move to. If that spot is occupied
+# by an enemy piece, then your piece will be moved to the next open square in
+# the path of movement.
+#
+#
+
 # Here is the main game
 print("Welcome to the game of checkers!")
 print("Please choose your color.")
 player, computer = getPlayerColor()
 print("You are playing as "+player)
 print("The computer is playing as "+computer)
+print()
+drawBoard()
