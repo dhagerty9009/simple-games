@@ -15,11 +15,12 @@ If you don't recognize it, this is the layout for git-flow, a very nice git exte
 ## Currently In Development
 
 Checkers
-	* Piece choice
-	* Printing initial board
-	* Get moves
-	* Calculate available moves
-	* Basic AI
+
+* Piece choice &#x2713;
+* Printing initial board
+* Get moves
+* Calculate available moves
+* Basic AI
 
 ## Development queue
 
