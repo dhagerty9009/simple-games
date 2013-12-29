@@ -1,7 +1,7 @@
 # Simple-Games
 
 Simple-Games is a suite of text-based terminal games for any *NIX-type environment.
-It is written in Python 3.1, and licenced under the GPL.
+It is written in Python 3.x, and licenced under the GPL.
 If you wish to contribute, follow these steps: fork, hack, submit pull request, ???, profit.
 
 If you do fork, please follow this simple branch scheme:
@@ -15,6 +15,11 @@ If you don't recognize it, this is the layout for git-flow, a very nice git exte
 ## Currently In Development
 
 Checkers
+	* Piece choice
+	* Printing initial board
+	* Get moves
+	* Calculate available moves
+	* Basic AI
 
 ## Development queue
 

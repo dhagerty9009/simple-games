@@ -7,24 +7,27 @@
 
 # This is what the initial board will look like
 #
-#     A   B   C   D   E   F   G   H
-#   +---+---+---+---+---+---+---+---+
-#   | B |   | B |   | B |   | B |   |
-#   +---+---+---+---+---+---+---+---+
-#   |   | B |   | B |   | B |   | B |
-#   +---+---+---+---+---+---+---+---+
-#   | B |   | B |   | B |   | B |   |
-#   +---+---+---+---+---+---+---+---+
-#   |   | . |   | . |   | . |   | . |
-#   +---+---+---+---+---+---+---+---+
-#   | . |   | . |   | . |   | . |   |
-#   +---+---+---+---+---+---+---+---+
-#   |   | W |   | W |   | W |   | W |
-#   +---+---+---+---+---+---+---+---+
-#   | W |   | W |   | W |   | W |   |
-#   +---+---+---+---+---+---+---+---+
-#   |   | W |   | W |   | W |   | W |
-#   +---+---+---+---+---+---+---+---+
+#      A    B    C    D    E    F    G    H
+#   +----+----+----+----+----+----+----+----+
+#   | B  |    | B  |    | B  |    | B  |    |
+#   +----+----+----+----+----+----+----+----+
+#   |    | B  |    | B  |    | B  |    | B  |
+#   +----+----+----+----+----+----+----+----+
+#   | B  |    | B  |    | B  |    | B  |    |
+#   +----+----+----+----+----+----+----+----+
+#   |    |  . |    |  . |    |  . |    |  . |
+#   +----+----+----+----+----+----+----+----+
+#   | .  |    |  . |    |  . |    |  . |    |
+#   +----+----+----+----+----+----+----+----+
+#   |    | W  |    | W  |    | W  |    | W  |
+#   +----+----+----+----+----+----+----+----+
+#   | W  |    | W  |    | W  |    | W  |    |
+#   +----+----+----+----+----+----+----+----+
+#   |    | W  |    | W  |    | W  |    | W  |
+#   +----+----+----+----+----+----+----+----+
+#
+# It is a little oblong to account for the possibility of kings, which will look like WK and BK
+# for white and black, respectively.
 
 # Imports
 import random
@@ -33,29 +36,52 @@ import random
 # The lighter pieces go first.
 def getPlayerColor():
     choice = ""
-    while choice != "B" or choice != "W":
+    while choice == "":
         print("What color do you want to play?")
-        choice = input("Black (B)? Or White (W)?")
+        choice = input("Black (B)? Or White (W)? ")
         choice = choice[0].upper()
         if choice == "B":
-            unchosen = "W"
-            break
+            return choice
         elif choice == "W":
-            unchosen = "B"
-            break
+            return choice
         else:
-            print("Invalid option, try again.")
-    return choice, unchosen
+            print("You must type either 'w' or 'b'. Try again.")
+            choice = ""
+
+def getComputerColor(player):
+    if player == "W":
+        computer = "B"
+    elif player == "B":
+        computer = "W"
+    return computer
 
 # The game board
-def drawBoard():
-    line = " +---+---+---+---+---+---+---+---+"
-    collumns = "   A   B   C   D   E   F   G   H"
-    print(collumns)
+def drawBoard(player, computer):
+    line = " +----+----+----+----+----+----+----+----+"
+    columns = "    A    B    C    D    E    F    G    H"
+    print(columns)
     print(line)
+    for i in range(1, 9):
+
+
+def checkWin(player, computer):
+    computer_win, player_win = false
+    if player == 0:
+        computer_win = true
+    elif computer == 0:
+        player_win = true
+    return player_win, computer_win
+
+def getWin(player, computer):
+    if player == true:
+        print("You win!")
+    elif computer == true:
+        print("You lose...")
+
+
 #
-# Movement of the pieces: The pieces are moved by typing in a collumn letter
-# and a row number for the piece you want to move, and then a collunm letter
+# Movement of the pieces: The pieces are moved by typing in a column letter
+# and a row number for the piece you want to move, and then a column letter
 # and a row number for the spot you want to move to. If that spot is occupied
 # by an enemy piece, then your piece will be moved to the next open square in
 # the path of movement.
@@ -65,8 +91,9 @@ def drawBoard():
 # Here is the main game
 print("Welcome to the game of checkers!")
 print("Please choose your color.")
-player, computer = getPlayerColor()
-print("You are playing as "+player)
-print("The computer is playing as "+computer)
+player_color = getPlayerColor()
+print("You are playing as "+player_color)
+computer_color = getComputerColor(player_color)
+print("The computer is playing as "+computer_color)
 print()
 drawBoard()
