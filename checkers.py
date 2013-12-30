@@ -9,21 +9,21 @@
 #
 #      A    B    C    D    E    F    G    H
 #   +----+----+----+----+----+----+----+----+
-#   | B  |    | B  |    | B  |    | B  |    |
+# 1 | B  |    | B  |    | B  |    | B  |    |
 #   +----+----+----+----+----+----+----+----+
-#   |    | B  |    | B  |    | B  |    | B  |
+# 2 |    | B  |    | B  |    | B  |    | B  |
 #   +----+----+----+----+----+----+----+----+
-#   | B  |    | B  |    | B  |    | B  |    |
+# 3 | B  |    | B  |    | B  |    | B  |    |
 #   +----+----+----+----+----+----+----+----+
-#   |    |  . |    |  . |    |  . |    |  . |
+# 4 |    |  . |    |  . |    |  . |    |  . |
 #   +----+----+----+----+----+----+----+----+
-#   | .  |    |  . |    |  . |    |  . |    |
+# 5 | .  |    |  . |    |  . |    |  . |    |
 #   +----+----+----+----+----+----+----+----+
-#   |    | W  |    | W  |    | W  |    | W  |
+# 6 |    | W  |    | W  |    | W  |    | W  |
 #   +----+----+----+----+----+----+----+----+
-#   | W  |    | W  |    | W  |    | W  |    |
+# 7 | W  |    | W  |    | W  |    | W  |    |
 #   +----+----+----+----+----+----+----+----+
-#   |    | W  |    | W  |    | W  |    | W  |
+# 8 |    | W  |    | W  |    | W  |    | W  |
 #   +----+----+----+----+----+----+----+----+
 #
 # It is a little oblong to account for the possibility of kings, which will look like WK and BK
@@ -56,13 +56,18 @@ def getComputerColor(player):
     return computer
 
 # The game board
-def drawBoard(player, computer):
-    line = " +----+----+----+----+----+----+----+----+"
-    columns = "    A    B    C    D    E    F    G    H"
+def drawBoard(pieces):
+    line = "  +----+----+----+----+----+----+----+----+"
+    columns = "     A    B    C    D    E    F    G    H"
     print(columns)
     print(line)
-    for i in range(1, 9):
-
+    for i in range(0, 8):
+        if i%2==0:
+            print(str(i+1)+" |    | "+str(pieces[i][0])+" |    | "+str(pieces[i][1])+" |    | "+str(pieces[i][2])+" |    | "+str(pieces[i][3])+" | ")
+            print(line)
+        elif i%2==1:
+            print(str(i+1)+" | "+str(pieces[i][0])+" |    | "+str(pieces[i][1])+" |    | "+str(pieces[i][2])+" |    | "+str(pieces[i][3])+" |    | ")
+            print(line)
 
 def checkWin(player, computer):
     computer_win, player_win = false
@@ -95,5 +100,8 @@ player_color = getPlayerColor()
 print("You are playing as "+player_color)
 computer_color = getComputerColor(player_color)
 print("The computer is playing as "+computer_color)
+player_pieces = 12
+computer_pieces = 12
+pieces_positions = [("B ", "B ", "B ", "B "), ("B ", "B ", "B ", "B "), ("B ", "B ", "B ", "B "), (". ", ". ", ". ", ". "), (". ", ". ", ". ", ". "), ("W ", "W ", "W ", "W "), ("W ", "W ", "W ", "W "), ("W ", "W ", "W ", "W ")]
 print()
-drawBoard()
+drawBoard(pieces_positions)
