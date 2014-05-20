@@ -7,7 +7,7 @@
 
 # This is what the initial board will look like
 #
-#      A    B    C    D    E    F    G    H
+#      1    2    3    4    5    6    7    8
 #   +----+----+----+----+----+----+----+----+
 # 1 | B  |    | B  |    | B  |    | B  |    |
 #   +----+----+----+----+----+----+----+----+
@@ -58,7 +58,7 @@ def getComputerColor(player):
 # The game board
 def drawBoard(pieces):
     line = "  +----+----+----+----+----+----+----+----+"
-    columns = "     A    B    C    D    E    F    G    H"
+    columns = "     1    2    3    4    5    6    7    8"
     print(columns)
     print(line)
     for i in range(0, 8):
@@ -69,19 +69,50 @@ def drawBoard(pieces):
             print(str(i+1)+" | "+str(pieces[i][0])+" |    | "+str(pieces[i][1])+" |    | "+str(pieces[i][2])+" |    | "+str(pieces[i][3])+" |    | ")
             print(line)
 
-def checkWin(player, computer):
+def getWin(player, computer):
     computer_win, player_win = false
     if player == 0:
-        computer_win = true
-    elif computer == 0:
-        player_win = true
-    return player_win, computer_win
-
-def getWin(player, computer):
-    if player == true:
-        print("You win!")
-    elif computer == true:
         print("You lose...")
+    elif computer == 0:
+        print("You win!")
+
+def getPlayerMove(pieces):
+    print("Type in a column and row number for the piece you want to move.")
+    moving_piece = input("Piece (column, row): ")
+    checkForPiece(moving_piece)
+    print("Now type in the column and row number of the spot you want to move to.")
+    move_spot = input("Move (column, row): ")
+    checkMove(move_spot)
+    checkJump(move_spot)
+
+def checkForPiece(selection, pieces):
+    possible_column, possible_row = splitInputToInt(selection)
+    if pieces[possible_column][possible_row] == "B ":
+        print("There is a piece there!")
+        #return true
+    elif pieces[possible_column][possible_row] == "W ":
+        print("There is a piece there!")
+        #return true
+    elif pieces[possible_column][possible_row] == ". ":
+        print("There is no piece here...") 
+
+def checkJump():
+    
+
+def checkMove():
+    
+
+def splitInputToInt(input):
+    column = int(input[0])
+    row = int(input[1])
+    return column, row
+
+def checkInput(input):
+    int_input = int(input)
+    first_digit = int(input[0])
+    second_digit = int(input[1])
+    if first_digit % 2 == 1 && first_digit in range(1,7):
+        if second_digit % 2 == 1:
 
 
 #
